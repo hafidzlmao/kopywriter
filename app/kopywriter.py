@@ -18,7 +18,7 @@ def main():
 
     print(f"User Input: {user_input} ")
     if validasi_input(user_input):
-        generate_copywriting_sentence(user_input)
+        generate_copywrite_sentence(user_input)
         generate_keywords(user_input)
     else:
         raise ValueError(f"Input terlalu panjang. Harus dibawah {INPUT_MAX_LENGTH}, Karakter yang disubmit sebanyak {user_input}")
@@ -26,10 +26,10 @@ def main():
 def validasi_input(prompt: str) -> bool: 
     return len(prompt) <= INPUT_MAX_LENGTH
 
-def generate_copywriting_sentence(prompt: str) -> str:
+def generate_copywrite_sentence(prompt: str) -> str:
     # Load your API key from an environment variable or secret management service
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    nice_prompt = f"generate upbeat copywriting sinppet for {prompt}: "
+    nice_prompt = f"generate upbeat copywriting snippet for {prompt}: "
     print(nice_prompt)
     response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=32)
 
@@ -50,7 +50,7 @@ def generate_copywriting_sentence(prompt: str) -> str:
 def generate_keywords(prompt: str) -> List[str]:
     # Load your API key from an environment variable or secret management service
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    nice_prompt = f"generate similar branding keywords for {prompt}: "
+    nice_prompt = f"generate similar and related branding keywords for {prompt}: "
     print(nice_prompt)
 
     response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=32)
@@ -62,7 +62,7 @@ def generate_keywords(prompt: str) -> List[str]:
     teks_keywords = teks_keywords.strip()
     keywords_arr = re.split(", | \n | * | - ", teks_keywords)
     keywords_arr = [k.strip().lower() for k in keywords_arr]
-    keywords_arr = [k.strip() for k in keywords_arr if len(k) > 0 ]
+    keywords_arr = [k.strip() for k in keywords_arr if len(k) > 0 ] 
     print(f"Keywords: {keywords_arr}")
     return keywords_arr
 

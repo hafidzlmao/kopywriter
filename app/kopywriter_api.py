@@ -1,11 +1,13 @@
 from ast import keyword
+from cgitb import handler
 from cmd import PROMPT
 from http.client import HTTPException
-import imp
+from mangum import Mangum
 from fastapi import FastAPI
 from kopywriter import generate_copywrite_sentence, generate_keywords
 
 app = FastAPI()
+handler = Mangum(app)
 INPUT_MAX_LENGTH = 32
 
 @app.get("/generate_copywrite_sentence")

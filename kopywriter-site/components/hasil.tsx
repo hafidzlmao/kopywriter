@@ -1,8 +1,12 @@
 interface HasilProps {
   sentence: string;
   prompt: string;
+  setPrompt: any;
   keywords: string[];
   onBack: any;
+  onSubmit: any;
+  isLoading: boolean;
+  characterLimit: number;
 }
 
 const Hasil: React.FC<HasilProps> = (props) => {
@@ -18,6 +22,13 @@ const Hasil: React.FC<HasilProps> = (props) => {
     );
     keywordElements.push(element);
   }
+
+  const isPromptValid = props.prompt.length < props.characterLimit;
+  const updatePromptValue = (text: string) => {
+    if (text.length <= props.characterLimit) {
+      props.setPrompt(text);
+    }
+  };
 
   const keywordContainer = (
     <div className="flex flex-wrap gap-2">{keywordElements}</div>
@@ -42,6 +53,14 @@ const Hasil: React.FC<HasilProps> = (props) => {
         {hasilSection("Sentence", props.sentence)}
         {hasilSection("Keywords", keywordContainer)}
       </div>
+      <button
+        className="bg-gradient-to-r from-teal-400 
+        to-blue-500 disabled:opacity-50 w-full p-2 rounded-md text-lg mb-3"
+        onClick={props.onSubmit}
+        disabled={props.isLoading || !isPromptValid}
+      >
+        Regenerate
+      </button>
       <button
         className="bg-gradient-to-r from-teal-400 
         to-blue-500 disabled:opacity-50 w-full p-2 rounded-md text-lg"

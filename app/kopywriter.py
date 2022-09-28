@@ -31,7 +31,7 @@ def generate_copywrite_sentence(prompt: str) -> str:
     openai.api_key = os.getenv("OPENAI_API_KEY")
     nice_prompt = f"generate upbeat copywriting snippet for {prompt}: "
     print(nice_prompt)
-    response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=32)
+    response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=64)
 
     #Ekstrak teks yang dioutputkan
     teks_copywrite:str = response["choices"][0]["text"]
@@ -53,7 +53,7 @@ def generate_keywords(prompt: str) -> List[str]:
     nice_prompt = f"generate similar and related branding keywords for {prompt}: "
     print(nice_prompt)
 
-    response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=32)
+    response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=64)
 
     #Ekstrak teks yang dioutputkan
     teks_keywords:str = response["choices"][0]["text"]

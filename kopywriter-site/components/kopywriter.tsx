@@ -43,6 +43,10 @@ const Kopywriter: React.FC = () => {
         keywords={keywords}
         onBack={onReset}
         prompt={prompt}
+        onSubmit={onSubmit}
+        setPrompt={prompt}
+        isLoading={isLoading}
+        characterLimit={CHARACTER_LIMIT}
       />
     );
   } else {
@@ -64,7 +68,7 @@ const Kopywriter: React.FC = () => {
           <div className="bg-slate-600 p-5 rounded-md text-white">
             <div className="text-center my-5">
               <Image src={logo} width={64} height={64} />
-              <h1 className=" text-3xl text-white font-light mt-4">
+              <h1 className=" text-3xl text-white font-light mt-4S">
                 Kopywriter
               </h1>
               <div>AI Generated Copywriting and Keywords</div>

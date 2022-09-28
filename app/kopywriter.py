@@ -60,7 +60,7 @@ def generate_keywords(prompt: str) -> List[str]:
 
     #Hilangkan whitespace
     teks_keywords = teks_keywords.strip()
-    keywords_arr = re.split(", | \n | * | - ", teks_keywords)
+    keywords_arr = re.split(",|\n|;|-", teks_keywords)
     keywords_arr = [k.strip().lower() for k in keywords_arr]
     keywords_arr = [k.strip() for k in keywords_arr if len(k) > 0 ] 
     print(f"Keywords: {keywords_arr}")

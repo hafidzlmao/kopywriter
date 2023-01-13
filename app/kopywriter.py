@@ -29,9 +29,9 @@ def validasi_input(prompt: str) -> bool:
 def generate_copywrite_sentence(prompt: str) -> str:
     # Load your API key from an environment variable or secret management service
     openai.api_key = os.getenv("OPENAI_API_KEY")
-    nice_prompt = f"generate upbeat copywriting snippet for {prompt}: "
+    nice_prompt = f"Formulate copywriting that can be used for both online and offline promotion of {prompt}: "
     print(nice_prompt)
-    response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=32)
+    response = openai.Completion.create(model="text-davinci-003", prompt=nice_prompt, temperature=0.75, max_tokens=32)
 
     #Ekstrak teks yang dioutputkan
     teks_copywrite:str = response["choices"][0]["text"]
@@ -53,7 +53,7 @@ def generate_keywords(prompt: str) -> List[str]:
     nice_prompt = f"generate similar and related branding keywords for {prompt}: "
     print(nice_prompt)
 
-    response = openai.Completion.create(model="text-davinci-002", prompt=nice_prompt, temperature=0.75, max_tokens=32)
+    response = openai.Completion.create(model="text-davinci-003", prompt=nice_prompt, temperature=0.75, max_tokens=32)
 
     #Ekstrak teks yang dioutputkan
     teks_keywords:str = response["choices"][0]["text"]

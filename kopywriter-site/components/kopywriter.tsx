@@ -6,7 +6,7 @@ import logo from "../public/logoipsum.svg";
 
 const Kopywriter: React.FC = () => {
   const CHARACTER_LIMIT: number = 32;
-  const ENDPOINT: string = `https://6brzxjenv7.execute-api.us-west-1.amazonaws.com/prod/generate_copywrite_dan_keywords`;
+  const ENDPOINT: string = `https://k7hs8a7bp7.execute-api.us-east-1.amazonaws.com/prod/generate_copywrite_dan_keywords`;
   const [prompt, setPrompt] = React.useState("");
   const [sentence, setSentence] = React.useState("");
   const [keywords, setKeywords] = React.useState([]);

@@ -1,4 +1,5 @@
 import { text } from "stream/consumers";
+import React from "react";
 
 interface FormProps {
   prompt: string;
@@ -6,6 +7,7 @@ interface FormProps {
   onSubmit: any;
   isLoading: boolean;
   characterLimit: number;
+  language: string;
 }
 
 const Form: React.FC<FormProps> = (props) => {
@@ -23,14 +25,23 @@ const Form: React.FC<FormProps> = (props) => {
     statusTeks = "Input must be under 32 characters";
   }
 
+  const language = props.language;
+  const promptText =
+    language === "IND" ? (
+      <p>
+        Beritahu kami tentang produk Anda, saya akan mengenerate kalimat
+        copywriting dan kata kunci serupa untuk Anda!
+      </p>
+    ) : (
+      <p>
+        Tell us what is your product about, I will generate copywrited sentence
+        and similar Keywords for you!
+      </p>
+    );
+
   return (
     <>
-      <div className="mb-6 text-slate-300">
-        <p>
-          Tell us what is your product about, I will generate copywrited
-          sentence and similar Keywords for you!
-        </p>
-      </div>
+      <div className="mb-6 text-slate-300">{promptText}</div>
 
       <input
         className="p-2 w-full rounded-md focus:outline-teal-500 focus:outline text-slate-800"

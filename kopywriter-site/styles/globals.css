@@ -6,3 +6,13 @@ html,
 body {
   @apply bg-slate-800;
 }
+
+.active {
+  background-color: teal-400;
+  color: white;
+}
+
+.inactive {
+  background-color: gray-300;
+  color: slate-800;
+}

@@ -28,12 +28,12 @@ const Form: React.FC<FormProps> = (props) => {
   const language = props.language;
   const promptText =
     language === "IND" ? (
-      <p>
-        Beritahu kami tentang produk Anda, saya akan mengenerate kalimat
+      <p className="text-center">
+        Beritahu kami tentang produk Anda, saya akan membuatkan kalimat
         copywriting dan kata kunci serupa untuk Anda!
       </p>
     ) : (
-      <p>
+      <p className="text-center">
         Tell us what is your product about, I will generate copywrited sentence
         and similar Keywords for you!
       </p>

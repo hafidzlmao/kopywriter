@@ -14,9 +14,9 @@ const Kopywriter: React.FC = () => {
   const [keywords, setKeywords] = React.useState([]);
   const [hasHasil, setHasHasil] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [language, setLanguage] = React.useState("");
+  const [language, setLanguage] = React.useState("IND");
 
-  console.log("Language:", language);
+  //   console.log("Language:", language);
 
   const onSubmit = () => {
     console.log("Submitting:" + prompt);

@@ -3,6 +3,7 @@ interface HasilProps {
   prompt: string;
   keywords: string[];
   onBack: any;
+  language: string;
 }
 
 const Hasil: React.FC<HasilProps> = (props) => {
@@ -32,6 +33,8 @@ const Hasil: React.FC<HasilProps> = (props) => {
     );
   };
 
+  const sentenceLabel = props.language === "ENG" ? "Sentence" : "Kalimat";
+
   return (
     <>
       <div className="mb-5">
@@ -39,7 +42,7 @@ const Hasil: React.FC<HasilProps> = (props) => {
           "Your Product",
           <div className="text-xl font-bold">{props.prompt}</div>
         )}
-        {hasilSection("Sentence", props.sentence)}
+        {hasilSection(sentenceLabel, props.sentence)}
         {hasilSection("Keywords", keywordContainer)}
       </div>
       <button

@@ -55,6 +55,7 @@ const Kopywriter: React.FC = () => {
         keywords={keywords}
         onBack={onReset}
         prompt={prompt}
+        language={language}
       />
     );
   } else {

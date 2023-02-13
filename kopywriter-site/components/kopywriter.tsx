@@ -85,7 +85,7 @@ const Kopywriter: React.FC = () => {
                   }`}
                   onClick={() => setLanguage("IND")}
                 >
-                  🇮🇩
+                  ID
                 </button>
               </div>
               <div className="col-auto">
@@ -97,7 +97,7 @@ const Kopywriter: React.FC = () => {
                   }`}
                   onClick={() => setLanguage("ENG")}
                 >
-                  🇬🇧
+                  EN
                 </button>
               </div>
             </div>

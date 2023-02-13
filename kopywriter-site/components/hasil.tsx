@@ -34,12 +34,13 @@ const Hasil: React.FC<HasilProps> = (props) => {
   };
 
   const sentenceLabel = props.language === "ENG" ? "Sentence" : "Kalimat";
+  const produkAnda = props.language === "ENG" ? "Your Product" : "Produk Anda";
 
   return (
     <>
       <div className="mb-5">
         {hasilSection(
-          "Your Product",
+          produkAnda,
           <div className="text-xl font-bold">{props.prompt}</div>
         )}
         {hasilSection(sentenceLabel, props.sentence)}
